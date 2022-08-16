@@ -1,5 +1,10 @@
 package com.macro.mall.tiny.service;
 
+import com.macro.mall.tiny.mbg.model.UmsAdmin;
+import com.macro.mall.tiny.mbg.model.UmsPermission;
+
+import java.util.List;
+
 /*
 * 后台管理员Service
 * */

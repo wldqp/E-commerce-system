@@ -7,6 +7,10 @@ redis:
     expire:
       authCode: 120 # 验证码超期时间
 spring:
+  security:
+    user:
+      name: user
+      password: 123
   redis:
     host: localhost  # redis服务器地址
     database: 0  # redis数据库索引（默认为0）

@@ -26,18 +26,24 @@
                         userId="${jdbc.userId}"
                         password="${jdbc.password}">
             <!--解决mysql驱动升级到8.0后不生成指定数据库代码的问题-->
-            <property name="nullCatalogMeansCurrent" value="true" />
+<!--            <property name="nullCatalogMeansCurrent" value="true" />-->
         </jdbcConnection>
         <!--指定生成model的路径-->
-        <javaModelGenerator targetPackage="com.macro.mall.tiny.mbg.model" targetProject="E:\JavaWeb\mall\src\main\java"/>
+        <javaModelGenerator targetPackage="com.macro.mall.tiny.mbg.model" targetProject="java\main\java"/>
         <!--指定生成mapper.xml的路径-->
-        <sqlMapGenerator targetPackage="com.macro.mall.tiny.mbg.mapper" targetProject="E:\JavaWeb\mall\src\main\resources"/>
+        <sqlMapGenerator targetPackage="com.macro.mall.tiny.mbg.mapper" targetProject="java\main\resources"/>
         <!--指定生成mapper接口的的路径-->
         <javaClientGenerator type="XMLMAPPER" targetPackage="com.macro.mall.tiny.mbg.mapper"
-                             targetProject="E:\JavaWeb\mall\src\main\java"/>
+                             targetProject="java\src\main\java"/>
         <!--生成全部表tableName设为%-->
         <table tableName="pms_brand">
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
         </table>
+<!--        <table tableName="ums_admin">-->
+<!--            <generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+<!--        </table>-->
+<!--        <table tableName="ums_permission">-->
+<!--            <generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+<!--        </table>-->
     </context>
 </generatorConfiguration>

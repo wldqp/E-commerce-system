@@ -1,10 +1,13 @@
 package com.macro.mall.tiny.dto;
 
+import com.macro.mall.tiny.mbg.model.UmsAdmin;
+import com.macro.mall.tiny.mbg.model.UmsPermission;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
+import java.util.List;
 import java.util.stream.Collectors;
 
 /*
@@ -24,18 +27,28 @@ public class AdminUserDetails implements UserDetails {
         return permissionList.stream()
                 .filter(permission -> permission.getValue()!=null)
                 .map(permission ->new SimpleGrantedAuthority(permission.getValue()))
-                .collect(Collectors.toList());;
+                .collect(Collectors.toList());
     }
 
     @Override
     public String getPassword() {
-        return umsAdmin.getPassword();
+        return " ";
     }
 
     @Override
     public String getUsername() {
-        return umsAdmin.getUsername();
+        return "null";
     }
+
+//    @Override
+//    public String getPassword() {
+//        return umsAdmin.getPassword();
+//    }
+
+//    @Override
+//    public String getUsername() {
+//        return umsAdmin.getUsername();
+//    }
 
     @Override
     public boolean isAccountNonExpired() {
@@ -54,6 +67,11 @@ public class AdminUserDetails implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return umsAdmin.getStatus().equals(1);
+        return false;
     }
+
+//    @Override
+//    public boolean isEnabled() {
+//        return umsAdmin.getStatus().equals(1);
+//    }
 }
