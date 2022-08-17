@@ -37,19 +37,19 @@
 //        return CommonResult.success(umsAdmin);
 //    }
 //
-////    @ApiOperation(value = "登陆以后返回token")
-////    @RequestMapping(value = "/login", method = RequestMethod.POST)
-////    @ResponseBody
-////    public CommonResult login(@RequestBody UmsAdminLoginParam umsAdminLoginParam){
-////        String token = adminService.login(umsAdminLoginParam.getUsername(), umsAdminLoginParam.getPassword());
-////        if(token == null){
-////            return CommonResult.validateFailed("用户名或密码错误");
-////        }
-////        Map<String, String> tokenMap = new HashMap<>();
-////        tokenMap.put("token", token);
-////        tokenMap.put("tokenHead", tokenHead);
-////        return CommonResult.success(tokenMap);
-////    }
+//    @ApiOperation(value = "登陆以后返回token")
+//    @RequestMapping(value = "/login", method = RequestMethod.POST)
+//    @ResponseBody
+//    public CommonResult login(@RequestBody UmsAdminLoginParam umsAdminLoginParam){
+//        String token = adminService.login(umsAdminLoginParam.getUsername(), umsAdminLoginParam.getPassword());
+//        if(token == null){
+//            return CommonResult.validateFailed("用户名或密码错误");
+//        }
+//        Map<String, String> tokenMap = new HashMap<>();
+//        tokenMap.put("token", token);
+//        tokenMap.put("tokenHead", tokenHead);
+//        return CommonResult.success(tokenMap);
+//    }
 //
 //    @ApiOperation("获取用户所有权限（包括+-权限）")
 //    @RequestMapping(value = "/permission/{adminId}", method = RequestMethod.GET)

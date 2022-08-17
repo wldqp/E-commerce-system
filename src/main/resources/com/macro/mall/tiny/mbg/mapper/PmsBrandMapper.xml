@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.macro.mall.tiny.mbg.mapper.PmsBrandMapper">
   <resultMap id="BaseResultMap" type="com.macro.mall.tiny.mbg.model.PmsBrand">
-    <result column="id" jdbcType="BIGINT" property="id" />
+    <id column="id" jdbcType="BIGINT" property="id" />
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="first_letter" jdbcType="VARCHAR" property="firstLetter" />
     <result column="sort" jdbcType="INTEGER" property="sort" />
@@ -111,6 +111,18 @@
       order by ${orderByClause}
     </if>
   </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from pms_brand
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from pms_brand
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
   <delete id="deleteByExample" parameterType="com.macro.mall.tiny.mbg.model.PmsBrandExample">
     delete from pms_brand
     <if test="_parameter != null">
@@ -279,5 +291,68 @@
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.macro.mall.tiny.mbg.model.PmsBrand">
+    update pms_brand
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="firstLetter != null">
+        first_letter = #{firstLetter,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null">
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="factoryStatus != null">
+        factory_status = #{factoryStatus,jdbcType=INTEGER},
+      </if>
+      <if test="showStatus != null">
+        show_status = #{showStatus,jdbcType=INTEGER},
+      </if>
+      <if test="productCount != null">
+        product_count = #{productCount,jdbcType=INTEGER},
+      </if>
+      <if test="productCommentCount != null">
+        product_comment_count = #{productCommentCount,jdbcType=INTEGER},
+      </if>
+      <if test="logo != null">
+        logo = #{logo,jdbcType=VARCHAR},
+      </if>
+      <if test="bigPic != null">
+        big_pic = #{bigPic,jdbcType=VARCHAR},
+      </if>
+      <if test="brandStory != null">
+        brand_story = #{brandStory,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.macro.mall.tiny.mbg.model.PmsBrand">
+    update pms_brand
+    set name = #{name,jdbcType=VARCHAR},
+      first_letter = #{firstLetter,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      factory_status = #{factoryStatus,jdbcType=INTEGER},
+      show_status = #{showStatus,jdbcType=INTEGER},
+      product_count = #{productCount,jdbcType=INTEGER},
+      product_comment_count = #{productCommentCount,jdbcType=INTEGER},
+      logo = #{logo,jdbcType=VARCHAR},
+      big_pic = #{bigPic,jdbcType=VARCHAR},
+      brand_story = #{brandStory,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.macro.mall.tiny.mbg.model.PmsBrand">
+    update pms_brand
+    set name = #{name,jdbcType=VARCHAR},
+      first_letter = #{firstLetter,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      factory_status = #{factoryStatus,jdbcType=INTEGER},
+      show_status = #{showStatus,jdbcType=INTEGER},
+      product_count = #{productCount,jdbcType=INTEGER},
+      product_comment_count = #{productCommentCount,jdbcType=INTEGER},
+      logo = #{logo,jdbcType=VARCHAR},
+      big_pic = #{bigPic,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
   </update>
 </mapper>

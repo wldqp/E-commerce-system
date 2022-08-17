@@ -9,6 +9,7 @@
 //import org.springframework.beans.factory.annotation.Value;
 //import org.springframework.security.core.userdetails.UserDetails;
 //import org.springframework.stereotype.Component;
+//import org.springframework.stereotype.Service;
 //
 //import java.util.Date;
 //import java.util.HashMap;
@@ -19,7 +20,7 @@
 ///*
 //*  JwtToken生成工具类
 //* */
-//@Component
+//@Service
 //public class JwtTokenUtil {
 //    private static final Logger LOGGER = (Logger) LoggerFactory.getLogger(JwtTokenUtil.class);
 //    private static final String CLAIM_KEY_USERNAME = "sub";
