@@ -9,6 +9,7 @@ import java.util.concurrent.TimeUnit;
 
 /*
 * redis操作service的实现类
+* 对象和数组都以json形式进行存储
 * */
 @Service
 public class RedisServiceImpl implements RedisService {

@@ -16,6 +16,7 @@ import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.ApiInfo;
+import springfox.documentation.service.Contact;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 
@@ -45,10 +46,11 @@ public class Swagger3Config {
 
   private ApiInfo apiInfo(){
     return new ApiInfoBuilder()
-        .title("SwaggerUI演示")
-        .description("mall")
-        .version("1.0")
-        .build();
+            .title("SwaggerUI演示")
+            .contact(new Contact("wan_tao","http://localhost:8080","1668040826@qq.com"))
+            .description("mall")
+            .version("2.0")
+            .build();
   }
 
   /**
